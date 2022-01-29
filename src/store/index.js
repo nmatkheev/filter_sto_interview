@@ -1,14 +1,34 @@
 import { createStore } from 'vuex'
-import db from '@/db.json'
 
 export default createStore({
   state: {
-    ...db,
-    // скопировали db в state
+    tasks: [
+      {
+        taskname: 'taskname 1',
+        todos: ['todo1', 'todo2', 'todo3']
+      },
+      {
+        taskname: 'taskname 2',
+        todos: ['todo1', 'todo2', 'todo3']
+      }
+    ]
+  },
+  getters: {
+    allTasks: (state) => state.tasks 
+  },
+  actions: {
+    addTask({ commit }, task) {
+      commit("add_task", task);
+    }
+  },
+  mutations: {
+    add_task(state, task) {
+      state.tasks.push(task);
 
-    someKeyOne: "some value one",
-    someKeyTwo: "#some value two",
-    // можно добавить столько свойств, сколько хочешь,
-    // state будет равен db, а остальные будут задаваться
+      localStorage.setItem('task', JSON.stringify(task))
+      let taskObject = JSON.parse(localStorage.getItem('task'))
+
+      console.log(taskObject)
+    }
   },
 })
