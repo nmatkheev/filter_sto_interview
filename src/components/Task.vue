@@ -9,7 +9,8 @@
  
       <!-- отображается при редакции названия задачи -->
       <p v-if="!this.startEdit && this.editTask">
-        <textarea type="text" v-model="newTaskName" placeholder="новое название задачи"></textarea>
+        <textarea type="text" v-model="newTaskName" placeholder="новое название задачи" maxlength="50"></textarea>
+        <!-- узнал о свойстве maxlength поздно = поэтому внизу есть лишний код - и не только здесь - кстати внизу указано let taskNameMaxLength = "100" - а здесь "50" - чтобы не забыть отредактировать все версии input type = "text" && textarea - может вылететь из головы -->
       </p>
 
       <!-- имя задачи -->

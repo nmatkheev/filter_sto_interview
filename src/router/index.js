@@ -1,5 +1,4 @@
 import Home from '@/components/Home'
-import AddTask from '@/components/AddTask'
 import NotFound from '@/components/NotFound'
 
 import {createRouter, createWebHistory} from 'vue-router'
@@ -14,11 +13,6 @@ const routes = [
     path: '/:pathMatch(.*)*', 
     name: 'NotFound', 
     component: NotFound 
-  },
-  { 
-    path: '/AddTask', 
-    name: 'AddTask', 
-    component: AddTask 
   }
 ]
 
