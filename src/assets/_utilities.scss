@@ -1,0 +1,32 @@
+label {
+  display: block;
+}
+
+.fl-right {
+  float: right;
+}
+
+.red {
+  box-shadow:inset 0px 3px 0px 0px #cc8585;
+  background-color: rgb(165, 47, 47);
+}
+
+.edit {
+  box-shadow:inset 0px 3px 0px 0px #dfe245;
+  background-color: rgb(235, 198, 79);
+}
+
+.toDoText {
+  font-size: 12pt;
+}
+
+.taskname {
+  font-weight: bold;
+  font-style: italic;
+  letter-spacing: 2.2px;
+  font-size: 16pt;
+}
+
+.todos {
+  margin-top: 10px;
+}

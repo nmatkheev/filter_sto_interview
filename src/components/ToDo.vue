@@ -1,11 +1,19 @@
 <template>
 
-    <input class="checkbox" type="checkbox" @change="changed"><span>{{todo}}</span>
+    <p v-if="!editToDo && !startEdit">
+    <textarea type="text" v-model="newToDo" placeholder="введите новый текст пункта"></textarea>
+    </p>
 
-    <hr class="hr-add-to-do">
+    <input class="checkbox" type="checkbox" @change="changed">
+    <span class="toDoText">
+    {{todo}}
+    </span>
+    <hr class="hr-task">
     <button @click="edit" v-if="!startEdit" v-text="editToDo ? 'Редактировать' : 'Отменить редактирование' "></button>
-    <input v-if="!editToDo" type="text" v-model="newToDo" :placeholder="todo">
-    <button @click="save(todo)" v-if="!editToDo">Save</button>
+
+    <!-- <input v-if="!editToDo" type="text" v-model="newToDo" placeholder="введите новый текст"> -->
+    
+    <button @click="save(todo)" v-if="!editToDo && !startEdit">Save</button>
     <button v-if="!startEdit" @click="this.$emit('del-to-do')" class="fl-right red">Удалить пункт</button>
 
 </template>
@@ -17,7 +25,7 @@ export default {
     return {
       editToDo: true,
       saveToDo: this.todo,
-      newToDo: '',
+      newToDo: ''
     }
   },
   props: {

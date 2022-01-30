@@ -1,7 +1,13 @@
 <template>
+
+  <nav id="navbar">
+  <img src="@/assets/logo-filter.png">
+  </nav>
+
   <div class="container">
   <router-view/>
   </div>
+  
 </template>
 
 <script>

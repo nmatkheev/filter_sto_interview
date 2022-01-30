@@ -1,0 +1,200 @@
+@import 'config';
+@import 'utilities';
+
+* {
+  font-size: 14pt;
+  font-family: Geneva, Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+/*  */
+
+#navbar {
+  background: rgb(16, 78, 63);
+  padding: $mainPadding;
+  text-align: center;
+  min-width: $minWidth;
+}
+
+#navbar img {
+  width: 300px
+}
+
+/*  */
+
+.noTasks {
+  padding: $mainPadding;
+  font-size: 12pt;
+}
+
+/*  */
+
+h1 {
+  font-size: 18pt;
+}
+
+.container {
+  max-width: 800px;
+  min-width: $minWidth;
+  margin: 10px auto;
+}
+
+body {
+  background-color: $light-color;
+}
+
+.show-hide-addtask {
+  justify-content: center;
+  margin-top: $some_value;
+  margin-bottom: $some_value;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.task {
+  background-color: azure;
+  margin-bottom: $some_value;
+  padding: $mainPadding;
+  border-radius: 15px;
+}
+
+.addTaskDiv {
+  background-color: rgb(196, 255, 230);
+  margin-bottom: $some_value;
+  padding: $mainPadding;
+  border-radius: 15px;
+}
+
+.editTaskName {
+  box-shadow:inset 0px 3px 0px 0px #1cb97d;
+  background-color: $light-color;
+}
+
+textarea {
+  box-shadow:inset 0px 3px 0px 0px $light-color;
+	background-color:#d3d8d5;
+	border:$itn_border;
+	display:$itn_display;
+	cursor:$itn_cursor;
+	color:$dark_color;
+	font-family:Arial;
+	font-size:$itn_font-size;
+	font-weight:$itn_font-weight;
+	padding:$itn_padding;
+	text-decoration:$itn_text-decoration;
+  width: 100%;
+}
+
+input {
+	box-shadow:inset 0px 3px 0px 0px $light-color;
+	background-color:#d3d8d5;
+	border:$itn_border;
+	display:$itn_display;
+	cursor:$itn_cursor;
+	color:$dark_color;
+	font-family:Arial;
+	font-size:$itn_font-size;
+	font-weight:$itn_font-weight;
+	padding:$itn_padding;
+	text-decoration:$itn_text-decoration;
+  margin-right: 5px;
+  outline: none;
+}
+
+button {
+	box-shadow:inset 0px 3px 0px 0px #9acc85;
+	background-color:#5aad7a;
+	border:$itn_border;
+	display:$itn_display;
+	cursor:$itn_cursor;
+	color:#ffffff;
+	font-size:$itn_font-size;
+	font-weight:$itn_font-weight;
+	padding:$itn_padding;
+	text-decoration:$itn_text-decoration;
+  margin-right: 5px;
+}
+
+.hr-add-task {
+  margin: 5px 0;
+	padding: 0;
+	height: 0;
+	border: none;
+	box-shadow: 0 0 5px 1px rgb(41, 154, 120);
+}
+
+.hr-task {
+	margin: 5px 0;
+	padding: 0;
+	height: 0;
+	border: none;
+	border-top: 2px dotted $dark_color;
+}
+
+.checkbox {
+  box-shadow: 0px 0px;
+}
+
+input:checked + span {
+  background: rgb(0, 255, 102);
+}
+
+/* модальное окно - начало - можно "запихать" в scoped */
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal .modal_content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: $some_value;
+  width: 80%;
+  z-index: 99999;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4), 0 16px 20px rgba(0,0,0,0.4);
+  background: #ffffff;
+}
+.modal .modal_content .close_modal_window {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.warn {
+  color: #fc0000;
+}
+
+/* модальное окно конец */
+
+p {
+  margin-top: $some_value;
+}
+
+a:link {
+  color: $dark_color; 
+  font-weight: bold;
+  text-decoration: none;
+ }
+a:hover {
+  color: $dark_color; 
+  font-weight: bold;
+  text-decoration: underline;
+ } 
+
+a:visited {
+  color: $dark_color; 
+  font-weight: bold;
+  text-decoration: none;
+}

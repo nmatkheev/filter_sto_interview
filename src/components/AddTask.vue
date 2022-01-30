@@ -4,23 +4,22 @@
     <h1>Add Task</h1>
 
     <form @submit="add">
-    <p><label>Название задачи</label><input type="text" v-model="taskname"/></p>
+    <p><label>Название задачи</label></p>
+    <input type="text" v-model="taskname"/>
 
-    <p>
     <label>Пункты задачи</label>
     <input type="text" v-model="todo"/><button @click="addToDo">Добавить пункт</button>
-    </p>
+    
 
-    <div v-if="this.todos.length !== 0">
-    Пункты задачи
-    <hr class="hr-add-task">  
+    <div v-if="this.todos.length !== 0"> 
     <div v-for="todo in todos" :key="todo">
     {{todo}} <button v-if="todo" @click="delToDo(todo)" class="fl-right red">delete</button>
     <hr class="hr-add-task">
     </div>
     </div>
-
+    <p>
     <input type="submit" value="Сохранить задание"/>
+    </p>
     </form>
     </div>
 
