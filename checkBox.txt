@@ -1,0 +1,37 @@
+Функционал - который может пригодиться для выполнения задачи №3 - README.md
+
+Styles.css
+// //
+
+input[type="checkbox"] {
+  pointer-events: none;
+}
+
+input[type="checkbox"] {
+  pointer-events: visible;
+}
+
+.checkbox-disabled {
+  pointer-events: none;
+}
+
+.checkbox-not-disabled {
+  pointer-events: visible;
+}
+
+Js, vue
+// // 
+
+let checkBox = document.querySelector('#idOfCheckbox');
+
+if (checkBox.classList.contains('checkbox-disabled')) {
+checkBox.classList.remove('checkbox-disabled')
+} 
+
+checkBox.classList.add('checkbox-not-disabled')
+
+Нюансы
+
+https://ru.stackoverflow.com/
+questions/781665/
+Добавление и удаление класса при нажатии на элемент

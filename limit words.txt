@@ -1,0 +1,25 @@
+https://www.cyberforum.ru/javascript/thread1261804.html
+
+здесь на первый взгляд внятные и адекватные примеры лимитировании длины слов в textarea или input type="text" на vanilla JS
+
+код внизу - нужно будет попробовать
+
+function limitWord(field, legth){
+    if (legth == undefined) legth = 5;
+    document.getElementByIdfield.onkeyup=function(){
+    var change=0;
+    var output='';
+    var input=this.value;
+    output = input.split(/(\s+)/g).map(function (e, i) {
+        if (i % 2 == 0) {
+            if (e.length>legth){
+            change=1;
+        }
+        return e.substr(0, legth);
+    } else return e; 
+    }).join('')
+    if (change==1){
+        document.getElementById(field).value=output;
+    }
+    }
+}
