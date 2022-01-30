@@ -1,4 +1,5 @@
 <template>
+<!-- Родительский компонент Task - отображение функционала в Home -->
     <div id="my_modal" class="modal">
       <div class="modal_content">
         <span @click="closeWindow" class="close_modal_window">×</span>
@@ -23,7 +24,6 @@ export default {
       this.$emit('delete-Task')
       this.closeWindow()
     },
-
     // убираем отображение окна
     closeWindow(){
         let modal = document.getElementById("my_modal");

@@ -1,5 +1,6 @@
 <template>
     
+    <!-- Рендерим задачи из состояния vuex по props из home -->
     <div v-for="task in this.tasks" :key="task">
     <Task :task="task" @delete-task="deleteTask"/>
     </div>
@@ -22,13 +23,10 @@ export default {
   },
   methods: {
     deleteTask(task){
+      // находим совпадение по индексу присланного task - и удаляем его из состояния
       this.editedTasks.splice(this.editedTasks.findIndex(value => value === task), 1);
     }
   }
 }
 
 </script>
-
-<style scoped>
-
-</style>

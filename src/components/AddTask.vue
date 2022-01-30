@@ -9,7 +9,6 @@
 
     <label>Пункты задачи</label>
     <input type="text" v-model="todo"/><button @click="addToDo">Добавить пункт</button>
-    
 
     <div v-if="this.todos.length !== 0"> 
     <div v-for="todo in todos" :key="todo">
@@ -49,7 +48,6 @@ export default {
     delToDo(todo){
       // удаляем один элемент по индексу, который совпадает с текстом, значение (value) todo
       this.todos.splice(this.todos.findIndex(value => value === todo), 1);
-
       // одинаковый функционал в Task
     },
     add(e) {
@@ -78,7 +76,3 @@ export default {
 }
 
 </script>
-
-<style scoped>
-
-</style>

@@ -19,4 +19,5 @@ export default {
 
 <style>
 @import "assets/style-all.css"
+/* не используем scoped стили, потому что их не так уж и много + используем sass */
 </style>

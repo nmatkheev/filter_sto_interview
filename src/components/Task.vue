@@ -1,14 +1,18 @@
 <template>
+<!-- Tasks - родительский компонент -->
 
   <div class="task">
       
+        <!-- Кнопочки - удалить задание целиком и полностью, редактировать || вернуться назад -->
         <button @click="showWarn('Вы уверены что хотите удалить задание?')" class="red">Удалить задание целиком и полностью</button>
         <button class="fl-right edit" @click="edit" v-text="startEdit ? 'Редактировать' : 'Вернуться назад'"></button>
  
-    <p v-if="!this.startEdit && this.editTask">
-    <textarea type="text" v-model="newTaskName" placeholder="новое название задачи"></textarea>
-    </p>
+      <!-- отображается при редакции названия задачи -->
+      <p v-if="!this.startEdit && this.editTask">
+        <textarea type="text" v-model="newTaskName" placeholder="новое название задачи"></textarea>
+      </p>
 
+      <!-- имя задачи -->
       <p>
         <input class="checkbox" type="checkbox" @change="changed">
         <span class="taskname">{{this.taskname}}</span>
@@ -16,15 +20,18 @@
 
       <hr class="hr-task">
 
+      <!-- функционал редакции имени задачи -->
       <button class="editTaskName" v-if="!this.startEdit" v-text="editTask ? 'Отменить редактирование' : 'Редактировать' " @click="editTaskName"></button>
       <button @click="saveTaskName(this.newTaskName)" class="editTaskName" v-if="!this.startEdit && this.editTask">Save</button>
 
+      <!-- функционал отображения пунктов задания -->
       <div class="todos" v-for="todo in task.todos" :key="todo">
       <ToDo :todo="todo" :startEdit="this.startEdit" @del-to-do="delToDo(todo)" @edit-to-do="editToDo" />
       </div>
 
+      <!-- функционал добавления пункта задания -->
       <p>
-      <input type="text" placeholder="введите пункт" v-model="todo"/><button @click="addToDo">Добавить пункт</button>
+        <input type="text" placeholder="введите пункт" v-model="todo"/><button @click="addToDo">Добавить пункт</button>
       </p>
   </div>
 
@@ -40,7 +47,8 @@ import ModalWindow from '@/components/ModalWindow'
 export default {
   data(){
     return{
-      startEdit: true,
+      // v-models && другое
+      startEdit: true, 
       todos: this.task.todos,
       taskTodelete: this.task,
       todo: '',
@@ -50,6 +58,7 @@ export default {
     }
   },
   props: {
+    // из компонента Tasks
     task: Object,
   },
   components: {
@@ -58,6 +67,20 @@ export default {
   },
   methods: {
     saveTaskName(newTaskName){
+
+      // let wordLength = newTaskName.split(' ') 
+      // let taskNameMaxLength = 100 
+      // for (let i=0; i<wordLength.length; i++){ 
+      //   if (wordLength[i].length < 20 && this.newTaskName.length !== 0 && this.newTaskName.length < taskNameMaxLength){ 
+      //     this.taskname = newTaskName 
+      //     let indexOfTask = this.$store.state.tasks.findIndex(value => value === this.task) 
+      //     this.$store.state.tasks[indexOfTask].taskname = newTaskName } 
+      //     else { 
+      //       alert('Задание либо слишком длинное (больше ' + taskNameMaxLength + ' символов!) либо вы вообще ничего не написали! - Возможно вы также ввели слишком длинное слово, которое больше чем ' + taskNameMaxLength + ' символов! Будьте внимательны!') 
+      //       } 
+      // }
+      // ограниченная длина слова - в названии задания
+      // этот код работает - но на каждую итерацию массива - а это нам не нужно
 
       let taskNameMaxLength = 100
 
@@ -72,6 +95,8 @@ export default {
       }
       // ДУБЛИРУЮЩАЯСЯ ЛОГИКА!
       // такой же фунционал в ToDo.vue - подумать о возможном функционале замыкания (как вариант - если это возможно и упростит, а не усложнит код)
+
+      // если ввести слово длинною больше чем div - оно выйдет за его пределы + надо бы поставить ограничение на общую длину задания
     },
     editTaskName(){
       this.editTask = !this.editTask
@@ -121,7 +146,3 @@ export default {
 }
 
 </script>
-
-<style scoped>
-
-</style>
